@@ -11,7 +11,6 @@ import TransactionHistory from '../screens/PurchaseHistory';
 import SellerScreen from '../screens/SellerScreen';
 import 'dotenv/config'
 export default function MainContainer() {
-console.log(process.env,"sadasdasd")
   return (
      <div style={{display:'flex',flex:1}}><Router>
      <Routes>
