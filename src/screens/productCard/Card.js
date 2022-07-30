@@ -45,11 +45,11 @@ console.log(url);
 const eDate =getDate(parseInt(i.data.warrenty));
 
   const uploadData =  {
-    "name": `Warrenty of ${NFTs[0].data.SerialNumber}`,
+    "name": `Warranty of ${NFTs[0].data.SerialNumber}`,
     "image": i.data.image,
     "price": `${i.data.price}`,
     "serial_no":`${NFTs[0].data.SerialNumber}`,
-    "description":`It proof that  ${i.data.name} having serial number ${NFTs[0].data.SerialNumber} remains under warrenty till ${new Date(eDate).toDateString()}`,
+    "description":`It proof that  ${i.data.name} having serial number ${NFTs[0].data.SerialNumber} remains under warranty till ${new Date(eDate).toDateString()}`,
 };
 
 const uri = await sendJSONtoIPFS(uploadData);
@@ -102,7 +102,7 @@ alert("You have Purchsed! "+ i.data.name);
         <div className="card__details">
           <p className="title"></p>
           <p>{i.data.name}</p>
-          <span className="span1">ETH{i.data.price}</span>
+          <span className="span1">MATIC{i.data.price}</span>
           {/* <span className="span2">₹{actualPrice}</span>
           <span className="span3">56%</span> */}
         </div>

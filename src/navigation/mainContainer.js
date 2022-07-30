@@ -1,6 +1,7 @@
 import React from 'react'
 import {
     BrowserRouter as Router,
+    HashRouter,
     Route,
     Routes
   } from "react-router-dom";
@@ -12,7 +13,7 @@ import SellerScreen from '../screens/SellerScreen';
 import 'dotenv/config'
 export default function MainContainer() {
   return (
-     <div style={{display:'flex',flex:1}}><Router>
+     <div style={{display:'flex',flex:1}}><HashRouter>
      <Routes>
          <Route path='/' element={<BuyerScreen/>} />
              
@@ -27,6 +28,6 @@ export default function MainContainer() {
             
         
      </Routes>
-    </Router></div>
+    </HashRouter></div>
   )
 }

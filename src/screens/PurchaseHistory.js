@@ -75,7 +75,7 @@ const openInNewTab = url => {
             <TableCell align="right">Price</TableCell>
             <TableCell align="right">expire date</TableCell>
             <TableCell align="right">ProductNFT</TableCell>
-            <TableCell align="right">WarrentyNFT</TableCell>
+            <TableCell align="right">WarrantyNFT</TableCell>
             <TableCell align="right">Timestamp</TableCell>
 
           </TableRow>
@@ -89,10 +89,10 @@ const openInNewTab = url => {
             >
              
               <TableCell align="right">{row.name}</TableCell>
-              <TableCell align="right">{row.price+" ETH"}</TableCell>
+              <TableCell align="right">{row.price+" MATIC"}</TableCell>
               <TableCell align="right">{new Date(row.expire_date).toDateString()}</TableCell>
-              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://rinkeby.etherscan.io/tx/${row.productNFTHash}`)}}>Open</Button>}</TableCell>
-              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://rinkeby.etherscan.io/tx/${row.warrentyNFTHash}`)}}>Open</Button>}</TableCell>
+              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://mumbai.polygonscan.com/tx/${row.productNFTHash}`)}}>Open</Button>}</TableCell>
+              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://mumbai.polygonscan.com/tx/${row.warrentyNFTHash}`)}}>Open</Button>}</TableCell>
               <TableCell align="right">{new Date(row.timeStamp).toDateString()}</TableCell>
 
 

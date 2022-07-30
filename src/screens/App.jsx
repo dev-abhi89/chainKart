@@ -32,7 +32,7 @@ const App=()=>{
     console.log("Form submitted",Data);
   }
   return (<>
-       {loading?<div style={{flex:1,justifyContent:'center',alignItems:'center',height:"100%",backgroundColor:'green'}}><CircularProgress size={50} color="success" /></div>:<div style={{flex:1}}>
+       {loading?<div style={{flex:1,justifyContent:'center',alignItems:'center',height:"100%",}}><CircularProgress size={50} color="success" /></div>:<div style={{flex:1}}>
        <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -76,7 +76,7 @@ const App=()=>{
            <TextField type="number" onChange={inputEvent} name="warrenty" label="Warranty Period" placeholder='Enter Product Warranty(Months)' variant="outlined" fullWidth required/>
            </Grid>
            <Grid xs={12} lg={6} item>
-           <TextField label="Product Price" onChange={inputEvent} name="price" placeholder='Enter Product Price(In Ether)' variant="outlined" fullWidth required/>
+           <TextField label="Product Price" onChange={inputEvent} name="price" placeholder='Enter Product Price(In MATIC)' variant="outlined" fullWidth required/>
            </Grid>
            <Grid xs={12} lg={12} item>
             <Button type='submit' variant="contained" color="primary"
