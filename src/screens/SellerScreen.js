@@ -18,7 +18,7 @@ export default function SellerScreen() {
     }
 
 async function fetchProd(){
-  const data = await fetchProduct(true);
+  const data = await fetchProduct(true,Address.toString());
   if(data){
     setProducts(data);
   }

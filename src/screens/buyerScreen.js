@@ -14,7 +14,7 @@ export default function BuyerScreen() {
     const [productData,setProductData]= useState([])
     const {owner,Address,contract,}= React.useContext(userContext);
     async function getProdDetails(){
-const data = await fetchProduct(true);
+const data = await fetchProduct(false);
 
 if(data){
     setProductData(data);

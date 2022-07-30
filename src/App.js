@@ -73,6 +73,18 @@ function AppContainer() {
     connectWallet();
   }, []);
 
+  useEffect(() => {
+    if (window.ethereum) {
+      window.ethereum.on("chainChanged", () => {
+        window.location.reload();
+      });
+      window.ethereum.on("accountsChanged", () => {
+        window.location.reload();
+      });
+    }
+  },[]);
+
+
   return <div style={{display:'flex',flex:1}}>
  {loading?<div style={{display:'flex',flexDirection:'column',flex:1,justifyContent:'center', alignItems:'center'}}>
   <CircularProgress size={50}/>

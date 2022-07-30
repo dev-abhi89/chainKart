@@ -117,10 +117,10 @@ const {quantity} = data.data()
     }
 }
 
-export async function fetchProduct(isSeller=false){
+export async function fetchProduct(isSeller=false,address=null){
     try{
       
-const q= isSeller?query(collection(db,"productlist")): query(collection(db,"productlist"),where("quantity",">=",1));
+const q= isSeller?query(collection(db,"productlist"),where("seller","==",address)): query(collection(db,"productlist"),where("quantity",">=",1));
 const data = await getDocs(q);
 var arr=[];
 if(data.docs.length>=1){
