@@ -3,16 +3,13 @@ import ords  from './ABI/Orders.json';
 import ProductNFT from './ABI/ProductNFT.json';
 import warrentyNFT from './ABI/warrentyNFT.json';
 import { ethers } from "ethers";
-import BasicTextFields from "./screens/form";
-import App from "./screens/App";
-import AddressProvider, {userContext } from "./services/AddressProvider";
+import  {userContext } from "./services/AddressProvider";
 import { CircularProgress, Typography } from "@mui/material";
 import { getUserDetails } from "./services/firebaseAPI";
 import MainContainer from "./navigation/mainContainer";
-import { HashRouter } from "react-router-dom";
 
-const warrentyAddressProd = '0x0E621CaAdF3aa61Ea4DD1d7293986584f0a52F9A';
-const prodAddress = '0xc8bDdE1C6f842293Ff5e2f0bb00EB7B5B3911b86';
+const warrentyAddressProd = '0x950eC455442Bb7b96ac03515C8dDDbb126B479aB';
+const prodAddress = '0xE74f732B91BF9D74c771D890fD0B4C0542B18FD9';
 const prodAddressTest ='0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
 const warrentyAddress ='0x8A791620dd6260079BF849Dc5567aDC3F2FdC318';
 
@@ -80,8 +77,7 @@ function AppContainer() {
  {loading?<div style={{display:'flex',flexDirection:'column',flex:1,justifyContent:'center', alignItems:'center'}}>
   <CircularProgress size={50}/>
  </div>:check?
- <HashRouter>
- <MainContainer/></HashRouter>
+ <MainContainer/>
  :<div style={{flex:1,justifyContent:'center',alignItems:'center'}}><Typography  className="header" color={'red'} gutterBottom variant='h6' align="center">
           Add metamask wallet to use this website
          </Typography></div>}
