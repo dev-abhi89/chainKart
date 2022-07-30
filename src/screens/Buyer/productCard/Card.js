@@ -1,9 +1,9 @@
 import { Favorite, FiberManualRecordOutlined, FiberManualRecordRounded } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import React, { useState, useEffect, useCallback } from "react";
-import { userContext } from "../../services/AddressProvider";
-import { Addorders, addQuantity, addWarrentyNFT, fetchProductNFT, updateProductNFT } from "../../services/firebaseAPI";
-import sendJSONtoIPFS from "../../services/PinataUpload";
+import { userContext } from "../../../services/AddressProvider";
+import { Addorders, addQuantity, addWarrentyNFT, fetchProductNFT, updateProductNFT } from "../../../services/firebaseAPI";
+import sendJSONtoIPFS from "../../../services/PinataUpload";
 import "./Card.css";
 
 const Card = ({i,setLoading}) => {

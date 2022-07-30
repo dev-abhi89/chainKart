@@ -2,9 +2,10 @@ import { AppBar, Button, Checkbox, CircularProgress, Container, FormControlLabel
 import { height } from '@mui/system'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-import { userContext } from '../services/AddressProvider'
-import { addProductNFT, addQuantity, fetchProduct } from '../services/firebaseAPI';
-import sendJSONtoIPFS from '../services/PinataUpload';
+import { userContext } from '../../../services/AddressProvider'
+import { addProductNFT, addQuantity, fetchProduct } from '../../../services/firebaseAPI';
+import sendJSONtoIPFS from '../../../services/PinataUpload';
+import CKAppbar from '../../appbar';
 
 export default function SellerScreen() {
   const {Address,contract,userDetails,owner} = React.useContext(userContext);
@@ -52,27 +53,7 @@ async function handleSubmit(e){
 
   return (
   <div style={{flex:1}}>
-    <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <img src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
-            width={30} height={30}/>
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{  }}>
-            ChainKart
-          </Typography>
-          <Button style={{marginRight:10,marginLeft:10,justifyContent:'flex-start'}}  variant='outlined' color="inherit"><Link to={'/'}  style={{backgroundColor:'transparent',color:"white",textDecoration:'none',fontSize:14,fontWeight:'bold'}}  color={'#fff'}>Switch to Buyer</Link></Button>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,justifyContent:'flex-end',textAlign:'right' }}>
-            Wellcome {Address.toString()}
-          </Typography></Toolbar>
-      </AppBar>
+    <CKAppbar isbuyer={false}/>
     <img src='https://scontent.fdel63-1.fna.fbcdn.net/v/t39.30808-6/284918021_5141651259223508_783628069824972216_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_ohc=vh4JUcaw8WwAX8C5uaP&_nc_ht=scontent.fdel63-1.fna&oh=00_AT9tCMew6Q2BA5g9CLONOJovhXpv_h7iN6oM4rjZhpmopg&oe=62E83F14'
     width={'100%'}
     height={"25%"}

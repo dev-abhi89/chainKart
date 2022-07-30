@@ -1,10 +1,11 @@
 import { LocalActivity, LocalActivityTwoTone } from '@mui/icons-material';
 import { AppBar, Button, Card, CardContent, CircularProgress, FormControl, Grid, IconButton, TextField, Toolbar, Typography } from '@mui/material';
 import React, { useContext, useState } from 'react';
-import { userContext } from '../services/AddressProvider';
-import { addProduct } from '../services/firebaseAPI';
+import { userContext } from '../../services/AddressProvider';
+import { addProduct } from '../../services/firebaseAPI';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { Link } from 'react-router-dom';
+import CKAppbar from '../appbar';
 
 
 
@@ -33,28 +34,7 @@ const App=()=>{
   }
   return (<>
        {loading?<div style={{flex:1,justifyContent:'center',alignItems:'center',height:"100%",}}><CircularProgress size={50} color="success" /></div>:<div style={{flex:1}}>
-       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-          <Link to={'/SellerHome'} style={{backgroundColor:'transparent',color:"white"}}  color={'#fff'}><ArrowBackIosNewIcon /></Link>
-            {/* <img src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
-            width={30} height={30}/> */}
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Add Product
-          </Typography>
-          <Button style={{marginRight:10,marginLeft:10,justifyContent:'flex-start'}}  variant='outlined' color="inherit"><Link to={'/'}  style={{backgroundColor:'transparent',color:"white",textDecoration:'none',fontSize:14,fontWeight:'bold'}}  color={'#fff'}>Switch to Buyer</Link></Button>
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,justifyContent:'flex-end',textAlign:'right' }}>
-            Wellcome {Address.toString()}
-          </Typography></Toolbar>
-      </AppBar>
+     <CKAppbar isbuyer={false} back={'/SellerHome'}/>
         <form onSubmit={handleSubmit}>
          <Typography  className="header" gutterBottom variant='h3' align="center">
           ADD PRODUCT

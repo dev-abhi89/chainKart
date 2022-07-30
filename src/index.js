@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {initializeApp} from "firebase/app";
 import {getFirestore} from 'firebase/firestore'
 import AddressProvider from './services/AddressProvider';
-import MainContainer from './navigation/mainContainer';
+import MainContainer from './navigation/NavigationContainer';
 import AppContainer from './App';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

@@ -1,12 +1,11 @@
 import React, { useEffect,useState } from "react";
-import ords  from './ABI/Orders.json';
 import ProductNFT from './ABI/ProductNFT.json';
 import warrentyNFT from './ABI/warrentyNFT.json';
 import { ethers } from "ethers";
 import  {userContext } from "./services/AddressProvider";
 import { CircularProgress, Typography } from "@mui/material";
 import { getUserDetails } from "./services/firebaseAPI";
-import MainContainer from "./navigation/mainContainer";
+import MainContainer from "./navigation/NavigationContainer";
 
 const warrentyAddressProd = '0x950eC455442Bb7b96ac03515C8dDDbb126B479aB';
 const prodAddress = '0xE74f732B91BF9D74c771D890fD0B4C0542B18FD9';
@@ -16,7 +15,7 @@ const warrentyAddress ='0x8A791620dd6260079BF849Dc5567aDC3F2FdC318';
 function AppContainer() {
   const{SetAddress,setContract,setUserDetails,setOwner,setWarrentyContract} = React.useContext(userContext);
   const [loading,setLoading]= useState(true);
-  const [check,setCheck]= useState(true);
+  const [check,setCheck]= useState(1);
   var _contract;
 
   const getUser = async(address)=>{
@@ -31,7 +30,7 @@ function AppContainer() {
 
       if (!ethereum) {
         alert("Please install MetaMask!");
-        setCheck(false);
+        setCheck(0);
         setLoading(false);
         
         return;
@@ -40,6 +39,11 @@ function AppContainer() {
       const accounts = await ethereum.request({
         method: "eth_requestAccounts",
       });
+    const net= await  ethereum.request({ method: 'net_version' }) ;
+    console.log(net);
+    if(net!=80001){
+      setCheck(2)
+    }
 
       console.log("Connected", accounts[0]);
       SetAddress(accounts[0]);
@@ -88,10 +92,10 @@ function AppContainer() {
   return <div style={{display:'flex',flex:1}}>
  {loading?<div style={{display:'flex',flexDirection:'column',flex:1,justifyContent:'center', alignItems:'center'}}>
   <CircularProgress size={50}/>
- </div>:check?
+ </div>:check==1?
  <MainContainer/>
  :<div style={{flex:1,justifyContent:'center',alignItems:'center'}}><Typography  className="header" color={'red'} gutterBottom variant='h6' align="center">
-          Add metamask wallet to use this website
+          {check==0?'Add metamask wallet to use this website':'Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network!'}
          </Typography></div>}
   </div>;
 }

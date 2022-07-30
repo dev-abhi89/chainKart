@@ -6,10 +6,10 @@ import {
     Routes
   } from "react-router-dom";
   import AppContainer from '../App'
-import App from '../screens/App'
-import BuyerScreen from '../screens/buyerScreen';
-import TransactionHistory from '../screens/PurchaseHistory';
-import SellerScreen from '../screens/SellerScreen';
+import App from '../screens/Seller/addProductData'
+import BuyerScreen from '../screens/Buyer/buyerScreen';
+import TransactionHistory from '../screens/Buyer/PurchaseHistory';
+import SellerScreen from '../screens/Seller/sellerScreen/SellerScreen';
 import 'dotenv/config'
 export default function MainContainer() {
   return (

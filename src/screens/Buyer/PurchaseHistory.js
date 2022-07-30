@@ -6,11 +6,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { userContext } from '../services/AddressProvider';
-import { FetchOrder } from '../services/firebaseAPI';
+import { userContext } from '../../services/AddressProvider';
+import { FetchOrder } from '../../services/firebaseAPI';
 import { AppBar, Button, IconButton, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import CKAppbar from '../appbar';
 
 
 
@@ -45,28 +46,7 @@ const openInNewTab = url => {
   };
   return (
    <div style={{flex:1}}>
-       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-          <Link to={'/'} style={{backgroundColor:'transparent',color:"white"}}  color={'#fff'}><ArrowBackIosNewIcon /></Link>
-            {/* <img src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
-            width={30} height={30}/> */}
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Purchase History
-          </Typography>
-          {/* <Button color="inherit"><Link to={'/'} style={{backgroundColor:'transparent',color:"white"}}  color={'#fff'}>Switch to Buyer</Link></Button> */}
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,justifyContent:'flex-end',textAlign:'right' }}>
-            Wellcome {Address.toString()}
-          </Typography></Toolbar>
-      </AppBar>
+   <CKAppbar back={'/'}/>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>

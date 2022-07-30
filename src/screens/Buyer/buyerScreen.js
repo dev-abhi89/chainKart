@@ -2,12 +2,13 @@ import { styled } from '@mui/material/styles';
 import { AppBar, Button, CircularProgress, Grid, IconButton, Paper, Toolbar, Typography } from '@mui/material'
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react'
-import { userContext } from '../services/AddressProvider';
-import { fetchProduct } from '../services/firebaseAPI';
+import { userContext } from '../../services/AddressProvider';
+import { fetchProduct } from '../../services/firebaseAPI';
 import Card from './productCard/Card'
 import MenuIcon from '@mui/icons-material/Menu';
-import './sellerScreen.css'
+import './buyerScreen.css'
 import { Link } from 'react-router-dom';
+import CKAppbar from '../appbar';
 
 export default function BuyerScreen() {
     const [loading,setLoading]=useState(true);
@@ -39,7 +40,8 @@ setLoading(false);
   
 //   </Grid></div>}</>
 <Box sx={{ flexGrow: 1 }}>
-<AppBar position="static">
+  <CKAppbar/>
+{/* <AppBar position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -61,8 +63,8 @@ setLoading(false);
           <Typography variant="h6" component="div" sx={{ flexGrow: 1,justifyContent:'flex-end',textAlign:'right' }}>
             Wellcome {Address.toString()}
           </Typography></Toolbar>
-      </AppBar>
-      <img src={require('../assets/bgbuyer.jpg')}
+      </AppBar> */}
+      <img src={require('../../assets/bgbuyer.jpg')}
     width={'100%'}
     height={"25%"}
     alt="image"
