@@ -40,7 +40,6 @@ function AppContainer() {
         method: "eth_requestAccounts",
       });
     const net= await  ethereum.request({ method: 'net_version' }) ;
-    console.log(net);
     if(net!=80001){
       setCheck(2)
     }
@@ -95,7 +94,7 @@ function AppContainer() {
  </div>:check==1?
  <MainContainer/>
  :<div style={{flex:1,justifyContent:'center',alignItems:'center'}}><Typography  className="header" color={'red'} gutterBottom variant='h6' align="center">
-          {check==0?'Add metamask wallet to use this website':'Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network!'}
+          {check==0?'Add metamask wallet to use this website':'Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!'}
          </Typography></div>}
   </div>;
 }

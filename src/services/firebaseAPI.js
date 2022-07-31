@@ -74,7 +74,6 @@ export async function addWarrentyNFT(transaction,product,expire,tokenId,owner){
 
 export async function fetchProductNFT(product,seller){
     try{
-        console.log(seller,product);
         const q = query(collection(db,"productNFT","products",product),where("ownerAddress",'==',seller));
     const data =await getDocs(q);
     var res =[];

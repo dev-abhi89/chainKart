@@ -13,10 +13,7 @@ export default function SellerScreen() {
   const [selectedProduct,setSelectedProduct]=useState(null);
   const [SerialNumber,setSerialNumber]=useState(null);
   const [loading,setLoading]= useState(false);
-    const inputEvent = (e)=>{
-        console.log("asdasd");
-        
-    }
+
 
 async function fetchProd(){
   const data = await fetchProduct(true,Address.toString());

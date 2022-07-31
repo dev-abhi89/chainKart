@@ -30,7 +30,6 @@ const App=()=>{
     alert("Form submitted");
   }
   setLoading(false);
-    console.log("Form submitted",Data);
   }
   return (<>
        {loading?<div style={{flex:1,justifyContent:'center',alignItems:'center',height:"100%",}}><CircularProgress size={50} color="success" /></div>:<div style={{flex:1}}>

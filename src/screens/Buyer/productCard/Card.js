@@ -17,7 +17,6 @@ const [Token,setToken] = useState(null);
 try{
   setLoading(true);
   const NFTs = await fetchProductNFT(i.id,i.data.seller);
-  console.log(NFTs);
   if(!NFTs.length){
     setLoading(false);
     alert("no Product Available");
@@ -54,7 +53,6 @@ function getDate(expire){
 try{
   setLoading(true);
   const NFTs = await fetchProductNFT(i.id,i.data.seller);
-  console.log(NFTs);
   if(!NFTs.length){
     setLoading(false);
     alert("no Product Available");
@@ -62,9 +60,6 @@ try{
   }
   const tokenId = NFTs[0].data.tokenId;
   const url=await contract.tokenURI(tokenId);
-console.log(url);
-console.log(test,parseInt(new Date().getTime()/1000));
-console.log(new Date(parseInt(test)).getTime())
 
 if(test && new Date(test*1000).getTime()<new Date().getTime()){
   alert("wrong testing value");
@@ -87,7 +82,6 @@ const uri = await sendJSONtoIPFS(uploadData);
 const data = await contract.connect(owner).transferWithCode(i.data.seller,Address,tokenId,parseInt(process.env.REACT_APP_CONTRACT_KEY));
 const warrenty = await warrentyContract.connect(owner).mintNFT(uri,eDate);
 const warentToken = await warrentyContract.getCurrentToken();
-console.log(eDate,"sdsadas");
 await addWarrentyNFT(warrenty.hash,i.id,eDate,parseInt(warentToken)+1,Address);
 const updateInfo=await updateProductNFT(i.id,NFTs[0].id,{transaction:data.hash,ownerAddress:Address,timeStamp:Date.now()});
 await Addorders(Address.toString(),i.id,i.data.name,eDate*1000,NFTs[0].data.SerialNumber,i.data.price,data.hash,warrenty.hash,NFTs[0].data.tokenId,parseInt(warentToken)+1);
