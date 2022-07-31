@@ -34,36 +34,10 @@ setLoading(false);
         color: theme.palette.text.secondary,
       }));
   return (
-//    <>{loading?<div className='container'><CircularProgress size ={50}/></div> :<div>
-//    <Grid item lg={'auto'} m={'auto'} md={'auto'}  container rowSpacing={3} columns={{ xs: 1, sm: 3, md: 3,lg:3 ,xl:3 }} columnSpacing={{ xs:5, sm: 20, md: 20,xl:20,lg:20 }} xl={'auto'}>
-// )})}
-  
-//   </Grid></div>}</>
+
 <Box sx={{ flexGrow: 1 }}>
   <CKAppbar/>
-{/* <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <img src="https://cdn-icons-png.flaticon.com/512/60/60992.png"
-            width={30} height={30}/>
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{  }}>
-            ChainKart
-          </Typography>
-          <Button style={{marginRight:10,marginLeft:10,justifyContent:'flex-start'}}  variant='outlined' color="inherit"><Link to={'/SellerHome'} style={{backgroundColor:'transparent',color:"white",textDecoration:'none',fontSize:14,fontWeight:'bold'}}  color={'#fff'}>Switch to seller</Link></Button>
-          <Button variant='outlined' color="inherit"><Link to={'/purchaseHistory'} style={{backgroundColor:'transparent',color:"white",textDecoration:'none',fontSize:14,fontWeight:'bold'}}  color={'#fff'}>Purchase History</Link></Button>
 
-
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,justifyContent:'flex-end',textAlign:'right' }}>
-            Wellcome {Address.toString()}
-          </Typography></Toolbar>
-      </AppBar> */}
       <img src={require('../../assets/bgbuyer.jpg')}
     width={'100%'}
     height={"25%"}

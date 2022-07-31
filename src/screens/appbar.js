@@ -9,7 +9,6 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import { AppBar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { StorefrontSharp } from '@mui/icons-material';
@@ -28,17 +27,13 @@ const CKAppbar = ({back=null,isbuyer=true}) => {
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+ 
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+
 
   return (
     <AppBar position="static">
@@ -46,7 +41,6 @@ const CKAppbar = ({back=null,isbuyer=true}) => {
         <Toolbar disableGutters>
         {back?<Link to={back} style={{backgroundColor:'transparent',color:"white"}}  color={'#fff'}><ArrowBackIosNewIcon /></Link>
             :<StorefrontSharp sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />}
-          {/* <Avatar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} alt="CK" src="https://cdn-icons-png.flaticon.com/512/60/60992.png" lg={{ width: 30, height: 30 }} /> */}
           <Typography
             variant="h6"
             noWrap

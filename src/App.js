@@ -9,8 +9,7 @@ import MainContainer from "./navigation/NavigationContainer";
 
 export const warrentyAddressProd = '0x950eC455442Bb7b96ac03515C8dDDbb126B479aB';
 export const prodAddress = '0xE74f732B91BF9D74c771D890fD0B4C0542B18FD9';
-const prodAddressTest ='0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9';
-const warrentyAddress ='0x8A791620dd6260079BF849Dc5567aDC3F2FdC318';
+
 
 function AppContainer() {
   const{SetAddress,setContract,setUserDetails,setOwner,setWarrentyContract} = React.useContext(userContext);

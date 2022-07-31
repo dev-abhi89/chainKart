@@ -31,19 +31,7 @@ openInNewTab(`https://mumbai.polygonscan.com/token/${prodAddress}?a=${NFTs[0].da
 
   }
 
-  // const carousel = useCallback(() => {
-  //   setTimeout(() => {
-  //     if (index < image.length - 1) {
-  //       setIndex(index + 1);
-  //     } else {
-  //       setIndex(0);
-  //     }
-  //   }, 1000);
-  // }, [index, image.length]);
-
-  // useEffect(() => {
-  //   show && carousel();
-  // }, [show, carousel]);
+  
 function getDate(expire){
   var date = new Date();
   date.setMonth(date.getMonth() + expire);
