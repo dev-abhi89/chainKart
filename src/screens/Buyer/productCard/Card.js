@@ -1,15 +1,36 @@
 import { Favorite, FiberManualRecordOutlined, FiberManualRecordRounded } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import React, { useState, useEffect, useCallback } from "react";
+import { prodAddress } from "../../../App";
 import { userContext } from "../../../services/AddressProvider";
 import { Addorders, addQuantity, addWarrentyNFT, fetchProductNFT, updateProductNFT } from "../../../services/firebaseAPI";
 import sendJSONtoIPFS from "../../../services/PinataUpload";
 import "./Card.css";
 
-const Card = ({i,setLoading}) => {
-  const [index, setIndex] = useState(0);
-  const [show, setShow] = useState(false);
+const Card = ({i,setLoading,test=null}) => {
+const [Token,setToken] = useState(null);
   const {owner,Address,contract,warrentyContract}= React.useContext(userContext);
+  const openInNewTab = url => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
+  async function getHistory (){
+try{
+  setLoading(true);
+  const NFTs = await fetchProductNFT(i.id,i.data.seller);
+  console.log(NFTs);
+  if(!NFTs.length){
+    setLoading(false);
+    alert("no Product Available");
+    return;
+  }else{
+setToken(NFTs);
+openInNewTab(`https://mumbai.polygonscan.com/token/${prodAddress}?a=${NFTs[0].data.tokenId}`);
+  }
+}catch(e){
+  console.log(e);
+}
+
+  }
 
   // const carousel = useCallback(() => {
   //   setTimeout(() => {
@@ -27,7 +48,7 @@ const Card = ({i,setLoading}) => {
 function getDate(expire){
   var date = new Date();
   date.setMonth(date.getMonth() + expire);
-  return date.getTime();
+  return parseInt(date.getTime()/1000);
 }
   const handlePurchase = async()=>{
 try{
@@ -42,23 +63,34 @@ try{
   const tokenId = NFTs[0].data.tokenId;
   const url=await contract.tokenURI(tokenId);
 console.log(url);
-const eDate =getDate(parseInt(i.data.warrenty));
+console.log(test,parseInt(new Date().getTime()/1000));
+console.log(new Date(parseInt(test)).getTime())
+
+if(test && new Date(test*1000).getTime()<new Date().getTime()){
+  alert("wrong testing value");
+  setLoading(false);
+
+  return;
+}
+
+const eDate =test && new Date(test*1000).getTime()>new Date().getTime()?new Date(test).getTime(): getDate(parseInt(i.data.warrenty));
 
   const uploadData =  {
     "name": `Warranty of ${NFTs[0].data.SerialNumber}`,
     "image": i.data.image,
     "price": `${i.data.price}`,
     "serial_no":`${NFTs[0].data.SerialNumber}`,
-    "description":`It proof that  ${i.data.name} having serial number ${NFTs[0].data.SerialNumber} remains under warranty till ${new Date(eDate).toDateString()}`,
+    "description":`It proof that  ${i.data.name} having serial number ${NFTs[0].data.SerialNumber} remains under warranty till ${new Date(eDate*1000).toDateString()}`,
 };
 
 const uri = await sendJSONtoIPFS(uploadData);
 const data = await contract.connect(owner).transferWithCode(i.data.seller,Address,tokenId,parseInt(process.env.REACT_APP_CONTRACT_KEY));
 const warrenty = await warrentyContract.connect(owner).mintNFT(uri,eDate);
 const warentToken = await warrentyContract.getCurrentToken();
+console.log(eDate,"sdsadas");
 await addWarrentyNFT(warrenty.hash,i.id,eDate,parseInt(warentToken)+1,Address);
 const updateInfo=await updateProductNFT(i.id,NFTs[0].id,{transaction:data.hash,ownerAddress:Address,timeStamp:Date.now()});
-await Addorders(Address.toString(),i.id,i.data.name,eDate,NFTs[0].data.SerialNumber,i.data.price,data.hash,warrenty.hash,NFTs[0].data.tokenId,parseInt(warentToken)+1);
+await Addorders(Address.toString(),i.id,i.data.name,eDate*1000,NFTs[0].data.SerialNumber,i.data.price,data.hash,warrenty.hash,NFTs[0].data.tokenId,parseInt(warentToken)+1);
 
 
 if(updateInfo){
@@ -107,7 +139,11 @@ alert("You have Purchsed! "+ i.data.name);
           <span className="span3">56%</span> */}
         </div>
      
-         <Button onClick={handlePurchase} variant="contained">BUY</Button>
+      <div style={{flexDirection:'row',display:'flex',justifyContent:'space-evenly'}}>
+      <Button style={{width:'40%',marginRight:5}} onClick={handlePurchase} variant="contained">BUY</Button>
+         <Button onClick={getHistory} variant="outlined">History</Button>
+      </div>
+
        
       </div>
     </div>
