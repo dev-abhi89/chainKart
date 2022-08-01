@@ -8,7 +8,7 @@ import sendJSONtoIPFS from '../../../services/PinataUpload';
 import CKAppbar from '../../appbar';
 
 export default function SellerScreen() {
-  const {Address,contract,userDetails,owner} = React.useContext(userContext);
+  const {Address,contract,userDetails,owner,checkNet} = React.useContext(userContext);
   const [Product,setProducts] = useState([]);
   const [selectedProduct,setSelectedProduct]=useState(null);
   const [SerialNumber,setSerialNumber]=useState(null);
@@ -30,6 +30,10 @@ async function handleSubmit(e){
     alert("Fill All details");
     return;
   }
+
+  if(checkNet){
+    alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!');
+    return;  }
   setLoading(true);
   const uploadData =  {
     "name": SerialNumber,

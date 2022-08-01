@@ -7,9 +7,10 @@ export default function AddressProvider({children}) {
     const [warrentyContract,setWarrentyContract] = useState(null);
     const [userDetails,setUserDetails]= useState(null)
     const [owner,setOwner]= useState(null);
+    const [checkNet,setCheckNet] = useState(false)
 
   return (
-    <userContext.Provider value={{Address,SetAddress,contract,setContract,userDetails,setUserDetails,owner,setOwner,warrentyContract,setWarrentyContract}}>
+    <userContext.Provider value={{Address,SetAddress,contract,setContract,userDetails,setUserDetails,owner,setOwner,warrentyContract,setWarrentyContract,checkNet,setCheckNet}}>
         {children}
     </userContext.Provider>
   )

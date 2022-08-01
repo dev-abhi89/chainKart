@@ -12,7 +12,7 @@ export const prodAddress = '0xE74f732B91BF9D74c771D890fD0B4C0542B18FD9';
 
 
 function AppContainer() {
-  const{SetAddress,setContract,setUserDetails,setOwner,setWarrentyContract} = React.useContext(userContext);
+  const{SetAddress,setContract,setUserDetails,setOwner,setWarrentyContract,setCheckNet} = React.useContext(userContext);
   const [loading,setLoading]= useState(true);
   const [check,setCheck]= useState(1);
   var _contract;
@@ -40,7 +40,13 @@ function AppContainer() {
       });
     const net= await  ethereum.request({ method: 'net_version' }) ;
     if(net!=80001){
-      setCheck(2)
+      // setCheck(2)
+      setCheckNet(true)
+      alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!');
+
+
+    }else{
+      setCheckNet(false);
     }
 
       console.log("Connected", accounts[0]);
