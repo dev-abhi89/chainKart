@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "90904264b39b177cefed",
+    "revision": "b8021aa5e39d227cfb76",
     "url": "/chainKart/static/css/main.1e5ddcb7.chunk.css"
   },
   {
-    "revision": "90904264b39b177cefed",
-    "url": "/chainKart/static/js/main.90904264.chunk.js"
+    "revision": "b8021aa5e39d227cfb76",
+    "url": "/chainKart/static/js/main.b8021aa5.chunk.js"
   },
   {
     "revision": "7a2ee09bee8492585ee7",
@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/chainKart/static/media/bgbuyer.f6a2d660.jpg"
   },
   {
-    "revision": "6b796fc5c482d94f5f306e73fa7020a5",
+    "revision": "6d3a861d092bf5263936ef88a730658f",
     "url": "/chainKart/index.html"
   }
 ];
