@@ -9,7 +9,7 @@ import "./Card.css";
 
 const Card = ({i,setLoading,test=null}) => {
 const [Token,setToken] = useState(null);
-  const {owner,Address,contract,warrentyContract,checkNet}= React.useContext(userContext);
+  const {owner,Address,contract,warrentyContract,checkNet,test:testNet}= React.useContext(userContext);
   const openInNewTab = url => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
@@ -23,7 +23,7 @@ try{
     return;
   }else{
 setToken(NFTs);
-openInNewTab(`https://mumbai.polygonscan.com/token/${prodAddress}?a=${NFTs[0].data.tokenId}`);
+openInNewTab(`https://${testNet?'mumbai.':""}polygonscan.com/token/${prodAddress}?a=${NFTs[0].data.tokenId}`);
   }
 }catch(e){
   console.log(e);
@@ -47,7 +47,7 @@ try{
     return;
   }
   if(checkNet){
-    alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!');
+    alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mainnet network');
     return;  }
   const tokenId = NFTs[0].data.tokenId;
   const url=await contract.tokenURI(tokenId);

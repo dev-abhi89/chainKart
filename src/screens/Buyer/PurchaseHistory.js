@@ -24,7 +24,7 @@ import CKAppbar from '../appbar';
 
 
 export default function TransactionHistory() {
-    const{Address} = React.useContext(userContext);
+    const{Address,test} = React.useContext(userContext);
 const [loading,setLoading] = React.useState(false);
 const[data,setData]=React.useState([]);
 
@@ -71,8 +71,8 @@ const openInNewTab = url => {
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.price+" MATIC"}</TableCell>
               <TableCell align="right">{new Date(row.expire_date).toDateString()}</TableCell>
-              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://mumbai.polygonscan.com/tx/${row.productNFTHash}`)}}>Open</Button>}</TableCell>
-              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://mumbai.polygonscan.com/tx/${row.warrentyNFTHash}`)}}>Open</Button>}</TableCell>
+              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://${test?'mumbai.':""}polygonscan.com/tx/${row.productNFTHash}`)}}>Open</Button>}</TableCell>
+              <TableCell align="right">{<Button variant='outlined' onClick={()=>{openInNewTab(`https://${test?'mumbai.':""}polygonscan.com/tx/${row.warrentyNFTHash}`)}}>Open</Button>}</TableCell>
               <TableCell align="right">{new Date(row.timeStamp).toDateString()}</TableCell>
 
 

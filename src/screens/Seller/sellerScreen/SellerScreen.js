@@ -32,7 +32,7 @@ async function handleSubmit(e){
   }
 
   if(checkNet){
-    alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!');
+    alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mainnet network');
     return;  }
   setLoading(true);
   const uploadData =  {

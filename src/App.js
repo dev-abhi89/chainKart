@@ -6,9 +6,9 @@ import  {userContext } from "./services/AddressProvider";
 import { CircularProgress, Typography } from "@mui/material";
 import { getUserDetails } from "./services/firebaseAPI";
 import MainContainer from "./navigation/NavigationContainer";
-
-export const warrentyAddressProd = '0x950eC455442Bb7b96ac03515C8dDDbb126B479aB';
-export const prodAddress = '0xE74f732B91BF9D74c771D890fD0B4C0542B18FD9';
+const test=false;
+export const warrentyAddressProd = test?'0x950eC455442Bb7b96ac03515C8dDDbb126B479aB':'0x950eC455442Bb7b96ac03515C8dDDbb126B479aB';
+export const prodAddress = test?'0xE74f732B91BF9D74c771D890fD0B4C0542B18FD9':'0xc19b017567cdb105767cf704f6E39298F8D203a8';
 
 
 function AppContainer() {
@@ -39,10 +39,11 @@ function AppContainer() {
         method: "eth_requestAccounts",
       });
     const net= await  ethereum.request({ method: 'net_version' }) ;
-    if(net!=80001){
+    console.log(net);
+    if(net!=137){
       // setCheck(2)
       setCheckNet(true)
-      alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!');
+      alert('Opps! it seems like you are on the wrong network.,Please connect with polygon mainnet network');
 
 
     }else{
@@ -99,7 +100,7 @@ function AppContainer() {
  </div>:check==1?
  <MainContainer/>
  :<div style={{flex:1,justifyContent:'center',alignItems:'center'}}><Typography  className="header" color={'red'} gutterBottom variant='h6' align="center">
-          {check==0?'Add metamask wallet to use this website':'Opps! it seems like you are on the wrong network.,Please connect with polygon mumbai test network having 80001 chainId!'}
+          {check==0?'Add metamask wallet to use this website':'Opps! it seems like you are on the wrong network.,Please connect with polygon mainnet  network'}
          </Typography></div>}
   </div>;
 }
