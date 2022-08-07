@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 export const userContext = React.createContext({Address:""});
 
 export default function AddressProvider({children}) {
-    const[Address,SetAddress] =useState("asdasdas")
+    const[Address,SetAddress] =useState("Unknown user")
     const [contract,setContract]= useState(null);
     const [warrentyContract,setWarrentyContract] = useState(null);
     const [userDetails,setUserDetails]= useState(null)
