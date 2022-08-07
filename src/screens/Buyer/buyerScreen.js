@@ -40,7 +40,8 @@ setLoading(false);
 
       <img src={require('../../assets/bgbuyer.jpg')}
     width={'100%'}
-    height={"25%"}
+    height={'auto'}
+    style={{maxHeight:"25%"}}
     alt="image"
     />
       <div style={{marginTop:30,marginBottom:30}}>

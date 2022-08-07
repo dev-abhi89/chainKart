@@ -90,7 +90,7 @@ const CKAppbar = ({back=null,isbuyer=true}) => {
             >
               {pages.map((page) => (
                 <MenuItem key={page.name}>
-            <Link to={page.url}  style={{backgroundColor:'transparent',color:"white",textDecoration:'none',fontSize:14,fontWeight:'bold'}}  color={'#fff'}>{page.name}</Link></MenuItem>
+            <Link to={page.url}  style={{backgroundColor:'transparent',color:"black",textDecoration:'none',fontSize:14,fontWeight:'bold'}}  color={'#fff'}>{page.name}</Link></MenuItem>
               ))}
             </Menu>
           </Box>
