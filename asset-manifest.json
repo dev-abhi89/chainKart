@@ -1,7 +1,7 @@
 {
   "main.css": "/chainKart/static/css/main.1e5ddcb7.chunk.css",
-  "main.js": "/chainKart/static/js/main.7213f453.chunk.js",
-  "main.js.map": "/chainKart/static/js/main.7213f453.chunk.js.map",
+  "main.js": "/chainKart/static/js/main.d4e4bfa0.chunk.js",
+  "main.js.map": "/chainKart/static/js/main.d4e4bfa0.chunk.js.map",
   "static/js/1.7a2ee09b.chunk.js": "/chainKart/static/js/1.7a2ee09b.chunk.js",
   "static/js/1.7a2ee09b.chunk.js.map": "/chainKart/static/js/1.7a2ee09b.chunk.js.map",
   "static/js/2.07d27e1c.chunk.js": "/chainKart/static/js/2.07d27e1c.chunk.js",
@@ -11,6 +11,6 @@
   "static/media/bgbuyer.jpg": "/chainKart/static/media/bgbuyer.f6a2d660.jpg",
   "static/css/main.1e5ddcb7.chunk.css.map": "/chainKart/static/css/main.1e5ddcb7.chunk.css.map",
   "index.html": "/chainKart/index.html",
-  "precache-manifest.e1d8880446c1e4472e1e68b26c45b75d.js": "/chainKart/precache-manifest.e1d8880446c1e4472e1e68b26c45b75d.js",
+  "precache-manifest.776b42504f9ae7b84cac75bc932c650c.js": "/chainKart/precache-manifest.776b42504f9ae7b84cac75bc932c650c.js",
   "service-worker.js": "/chainKart/service-worker.js"
 }
