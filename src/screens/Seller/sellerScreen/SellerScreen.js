@@ -55,7 +55,7 @@ async function handleSubmit(e){
   return (
   <div style={{flex:1}}>
     <CKAppbar isbuyer={false}/>
-    <img src='https://scontent.fbho3-1.fna.fbcdn.net/v/t39.30808-6/284918021_5141651259223508_783628069824972216_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=e3f864&_nc_ohc=GCA849p5teYAX9mOo_8&_nc_ht=scontent.fbho3-1.fna&oh=00_AT_WWr1srPPpbZO5b0qQ6gCWCmT7xLXzvIkNTwQ8B8WIvA&oe=62F02814'
+    <img src={require('../../../assets/abnner.jpg')}
     width={'100%'}
     height={"25%"}
     alt="image"
